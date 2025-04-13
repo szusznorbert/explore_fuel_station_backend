@@ -1,0 +1,44 @@
+{
+  "name": "fuel_station",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/module-alias": "^2.0.4",
+    "@types/node": "^22.14.1",
+    "module-alias": "^2.2.3",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "tsc": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.2.0"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "_moduleAliases": {
+    "@controllers": "./dist/controllers",
+    "@routes": "./dist/routes",
+    "@services": "./dist/services",
+    "@models": "./dist/models",
+    "@dtos": "./dist/dtos",
+    "@middlewares": "./dist/middlewares",
+    "@repositories": "./dist/repositories",
+    "@configs": "./dist/configs",
+    "@mappers": "./dist/mappers"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "exec": "tsc && node ./dist/index.js",
+    "ext": "ts,js,json"
+  }
+}
